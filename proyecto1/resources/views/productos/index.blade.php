@@ -41,5 +41,4 @@
     @else
         <p class="text-muted">No hay Productos aún.</p>
     @endif
-    <p>Impresion ejemplo</p>
 @endsection

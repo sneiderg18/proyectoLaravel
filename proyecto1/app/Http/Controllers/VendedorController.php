@@ -45,7 +45,7 @@ class VendedorController extends Controller
     public function edit(Vendedor $vendedor)
     {
         // Cambiado $vend → $vendedor para coincidir con el parámetro
-        dd($vendedor);
+        //dd($vendedor);
         return view('vendedores.edit', compact('vendedor'));
     }
 
@@ -54,7 +54,7 @@ class VendedorController extends Controller
      */
     public function update(Request $request, Vendedor $vendedor)
     {
-        dd($request);
+        //dd($request);
         $dataUpdate = $request->validate([
             "nombre" => ['required', 'string', 'max:255'],
             "cargo" => ['required', 'string', 'max:255'],
@@ -71,6 +71,6 @@ class VendedorController extends Controller
     public function destroy(Vendedor $vendedor)
     {
         $vendedor->delete();
-        return redirect()->route('vendedores.index');
+        return redirect()->route('vendedores.index')->with('succes');
     }
 }

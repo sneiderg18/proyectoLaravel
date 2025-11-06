@@ -21,7 +21,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('Productos.create');
+        return view('productos.create');
     }
 
     /**
@@ -32,8 +32,8 @@ class ProductoController extends Controller
         //dd($request);
         $dataProducto=$request->validate([
             "nombre"=>['required', 'string', 'max:255' ],
-            "precio"=>['required', 'int', 'max:255'],
-            "stock"=>['required', 'int', 'max:255'],
+            "precio" => ['required', 'numeric', 'min:0'],
+            "stock" => ['required', 'integer', 'min:0'],
             "descripcion"=>['required', 'string', 'max:255'],
         ]);
         Producto::create($dataProducto);
@@ -74,8 +74,9 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente.');
     }
 }
