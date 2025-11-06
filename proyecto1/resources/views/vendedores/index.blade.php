@@ -3,7 +3,8 @@
 @section('title', 'Lista de vendedores')
 
 @section('contenido')
-<div>
+<div class="d-flex justify-content-between alingn-items-center mb-3">
+    <h1 class="h3">Vendedores</h1>
     <a class="btn btn-primary" href="{{ route('vendedores.create') }}">Nuevo vendedor</a>
 </div>
 
@@ -39,10 +40,11 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Seguro que deseas eliminar este vendedor?')">
+                                    onclick="return confirm('¿Seguro que deseas eliminar al vendedor {{ $vend->nombre }}?')">
                                     Eliminar
                                 </button>
                             </form>
+
                         </td>
                     </tr>
                 @endforeach

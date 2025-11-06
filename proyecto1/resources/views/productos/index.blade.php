@@ -28,10 +28,12 @@
                             <td>{{ $prod->descripcion }}</td>
                             <td class="d-flex gap-2">
                                 <a class="btn btn-success" href="{{ route('productos.edit',$prod)}}">Editar</a>
-                                <form action="{{ route('productos.destroy', $prod)}}" method="POST" onsubmit="return confirm('¿Eliminar?')">
-                                    @csrf @method('DELETE')
+                                <form action="{{ route('productos.destroy', $prod)}}" method="POST" onsubmit="return confirm('¿Eliminar el producto {{ $prod->nombre }}?')">
+                                    @csrf 
+                                    @method('DELETE')
                                     <button class="btn btn-danger">Eliminar</button>
                                 </form>
+
                             </td>
                         </tr>
                     @endforeach
