@@ -30,6 +30,16 @@
             <input type="number" class="form-control" id="stock" name="stock" required>
         </div>
 
+        <div class="mb-3">
+            <label for="categoria_id" class="form-label">Categoría</label>
+            <select name="categoria_id" id="categoria_id" class="form-control" required>
+                <option value="">Seleccione una categoría</option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

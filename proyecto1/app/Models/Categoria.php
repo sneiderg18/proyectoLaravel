@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-        protected $fillable = ['nombre', 'descripcion'];
-    public function productos ()
+    use HasFactory; // ✅ Importante para usar las fábricas y migraciones de Laravel
+
+    // Campos que se pueden asignar masivamente
+    protected $fillable = ['nombre', 'descripcion'];
+
+    // Relación: una categoría tiene muchos productos
+    public function productos()
     {
-        return $this->hasMany (Producto::class);
+        return $this->hasMany(Producto::class);
     }
 }

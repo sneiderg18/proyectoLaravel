@@ -11,6 +11,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('productos.index') }}">Productos</a>
+            <a class="navbar-brand" href="{{ route('categorias.index') }}">Categoria</a>
             <a class="navbar-brand" href="{{ route('vendedores.index') }}">Vendedor</a>
         </div>
     </nav>

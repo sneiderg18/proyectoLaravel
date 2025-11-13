@@ -21,7 +21,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos.create');
+        $categorias = \App\Models\Categoria::all();
+        return view('productos.create', compact('categorias'));
     }
 
     /**
@@ -35,6 +36,7 @@ class ProductoController extends Controller
             "precio" => ['required', 'numeric', 'min:0'],
             "stock" => ['required', 'integer', 'min:0'],
             "descripcion"=>['required', 'string', 'max:255'],
+            "categoria_id" => ['required', 'exists:categorias,id'],
         ]);
         Producto::create($dataProducto);
         return redirect()->route("productos.index");

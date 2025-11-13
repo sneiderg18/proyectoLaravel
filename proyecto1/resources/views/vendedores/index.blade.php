@@ -11,7 +11,7 @@
 @if ($vendedores->count())
     <div class="table-responsive mt-3">
         <table class="table table-striped align-middle">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
