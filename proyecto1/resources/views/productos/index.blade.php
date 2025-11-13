@@ -17,7 +17,7 @@
                     <th>Precio</th>
                     <th>Stock</th>
                     <th>Descripción</th>
-                    <th>Categoría</th> <!-- 👈 Nueva columna -->
+                    <th>Categoría</th> 
                     <th>Acciones</th>
                 </tr>
             </thead>

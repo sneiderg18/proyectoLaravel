@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -55,7 +56,8 @@ class ProductoController extends Controller
      */
     public function edit(producto $producto)
     {
-        return view('productos.edit', compact('producto'));
+        $categorias = Categoria::all();
+        return view('productos.edit', compact('producto', 'categorias'));
     }
 
     /**
@@ -68,6 +70,7 @@ class ProductoController extends Controller
             "precio"=>['required', 'numeric', 'min:0'],
             "stock"=>['required', 'integer', 'min:0'],
             "descripcion"=>['nullable', 'string'],
+            "categoria_id" => ['required', 'exists:categorias,id'],
         ]);
         $producto->update($dataUpdate);
         return redirect()->route('productos.index');
